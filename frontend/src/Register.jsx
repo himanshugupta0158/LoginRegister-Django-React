@@ -15,13 +15,13 @@ export const Register = (props) =>{
         <div className="auth-form-container">
         <form className="register-form" onSubmit={handleSubmit}>
             <label for="name">Full Name</label>
-            <input value={name} type="text" placeholder="Your Full Name" id="name" name="name"/>
+            <input type="text" placeholder="Your Full Name" id="name" name="name"/>
             
-            <label for="email">email</label>
-            <input value={email} type="email" placeholder="youremail@gmail.com" id="email" name="email"/>
+            <label for="email">Email</label>
+            <input type="email" placeholder="youremail@gmail.com" id="email" name="email"/>
 
-            <label for="password">password</label>
-            <input value={pass} type="password" placeholder="***********" id="password" name="password"/>
+            <label for="password">Password</label>
+            <input type="password" placeholder="***********" id="password" name="password"/>
 
             <button>Register</button>
         </form>
