@@ -23,4 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 db.sqlite3
 __pycache__
-core.__pycache__
+Djangoeact_Login_Register.__pycache__
