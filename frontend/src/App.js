@@ -10,11 +10,15 @@ import ResetPassword from "./containers/ResetPassword"
 import ResetPasswordConfirm from "./containers/ResetPasswordConfirm"
 
 
+import { Provider } from "react-redux";
+import store from "./store";
+
+
 function App() {
 
   return (
     <>
-    <div>
+    <Provider store={store}>
       <BrowserRouter>
       <Layout>
         
@@ -29,7 +33,7 @@ function App() {
 
       </Layout>
       </BrowserRouter>
-    </div>
+    </Provider>
     </>
   )
   
