@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import {connect} from 'react-redux';
+import { login } from '../actions/auth';
 
-function Login(){
+function Login({ login, isAuthenticated }){
 
     console.log("You are in Login!");
     const [formData, setFormData] = useState({
@@ -19,17 +20,20 @@ function Login(){
     const onSubmit = e => {
         e.preventDefault();
 
-        // login(email, password)
+        login(email, password);
 
     };
 
     // Is User AUthenticated
     // Redirect them to home page
+    if (isAuthenticated){
+        return <Navigate to="/" />
+    }
 
     return (
         <div className='container mt-5'>
-            <h1>Sign In</h1>
-            <p>Sign into your Account</p>
+            <h1>Login In</h1>
+            <p>Login into your Account</p>
             <form onSubmit={e => onSubmit(e)}>
                 <div className='form-group'>
                     <input
@@ -41,6 +45,10 @@ function Login(){
                         onChange={e => onChange(e)}
                         required
                     />
+
+                </div>
+                
+                <div className='form-group'>
                     <input
                         className='form-control'
                         type='password'
@@ -67,9 +75,9 @@ function Login(){
     );
 };
 
-// const mapStateToProps = state => ({
-//     // is authenticated
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
 
-// });
+});
 
-export default connect(null, {})(Login);
+export default connect(mapStateToProps, { login })(Login);
